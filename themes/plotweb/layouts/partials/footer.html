@@ -1,0 +1,27 @@
+<footer class="footer">
+  {{ if (.Site.Params.footNote1) }}
+  <section class="container">
+    {{ if (.Site.Params.footNoteTitle) }}
+    <p>{{ .Site.Params.footNoteTitle }}</p>
+    {{ end }}
+    {{ with .Site.Params }}
+    <small>{{ .footNote1 }}</small><br>
+    <small>{{ .footNote2 }}</small><br>
+    <small>{{ .footNote3 }}</small>
+    {{ end }}
+  </section>
+  {{ end }}
+  <section class="container">
+    ©
+    {{ if (and .Site.Params.since (lt .Site.Params.since now.Year)) }}
+    {{ .Site.Params.since }} -
+    {{ end }}
+    {{ now.Year }}
+    {{ if (.Site.Params.authorUrl) }}
+    <a href="{{ .Site.Params.authorUrl }}" target="_blank">{{ with .Site.Params.author }} {{ . }} {{ end }}</a>
+    {{ else }}
+    {{ with .Site.Params.author }} {{ . }} {{ end }}
+    {{ end }}
+    ·
+  </section>
+</footer>

@@ -1,0 +1,79 @@
+@mixin content_dark {
+  .content {
+    .post {
+      .tags {
+        .tag {
+          background-color: $alt-bg-color-dark;
+
+          a {
+            color: $fg-color-dark;
+          }
+          a:active {
+            color: $fg-color-dark;
+          }
+        }
+      }
+    }
+    .list {
+      ul {
+        li {
+          .title {
+            color: $fg-color-dark;
+
+            &:hover,
+            &:focus {
+              color: $link-color-dark;
+            }
+          }
+        }
+      }
+    }
+
+    .centered {
+      .about {
+        ul {
+          li {
+            a {
+              color: $fg-color-dark;
+
+              &:hover,
+              &:focus {
+                color: $link-color-dark;
+              }
+            }
+          }
+        }
+      }
+
+      .launchButton{
+        background: url("/images/buttonbg.gif") no-repeat center;
+        color: #668b66;
+        width: 15em;
+        height: 5em;
+        font-size: large;
+        margin-top: 1em;
+        border: none;
+        border-radius: 3em;
+        a{
+          color: #d1fcd1;
+          text-decoration: none
+        }
+      }
+      .launchButton:hover{
+        a{
+          color: #fff
+        }
+      }
+    }
+  }
+}
+
+body.colorscheme-dark {
+  @include content_dark();
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include content_dark();
+  }
+}
